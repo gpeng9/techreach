@@ -1,0 +1,33 @@
+{
+  "name": "techreach",
+  "version": "1.0.0",
+  "description": "ye",
+  "main": "index.js",
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.6",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "core-js": "^3.6.4",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "webpack": "^4.41.5",
+    "webpack-dev-server": "^3.10.2"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ayan-Bandyopadhyay/techreach.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ayan-Bandyopadhyay/techreach/issues"
+  },
+  "homepage": "https://github.com/Ayan-Bandyopadhyay/techreach#readme"
+}
