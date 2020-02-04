@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "techreach-c2dd7",
+    "site": "techreach-users",
     "public": "public",
     "ignore": [
       "firebase.json",
