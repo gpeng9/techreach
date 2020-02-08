@@ -3,10 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+    <title>Admin</title>
 
-
-    
 
     <!-- update the version number as needed -->
     <script src="/__/firebase/7.8.0/firebase-app.js"></script>
@@ -21,15 +19,117 @@
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
 
-    
+    <style> 
+      /*Position and style for the sidebar*/ 
+        .sidebar { 
+          height: 100%; 
+          width: 0; 
+          position: fixed; 
+          /*Stays in place */ 
+          background-color: rgb(164, 175, 206); 
+          overflow-x: hidden; 
+          /*for Disabling horizontal scroll */ 
+        } 
+        /* Position and style for the sidebar links */ 
+                  
+        .sidebar a { 
+          padding: 10px 10px 10px; 
+          font-size: 25px; 
+          color: #111; 
+          display: block; 
+          transition: 0.3s; 
+        } 
+        /* the links change color when mouse hovers upon them*/ 
+                  
+        .sidebar a:hover { 
+          color: #FFFFFF; 
+        } 
+        /* Position and style the for cross button */ 
+                  
+        .sidebar .closebtn { 
+          position: absolute; 
+          top: 0; 
+          right: 25px; 
+        } 
+        /* Style for the sidebar button */ 
+                  
+        .openbtn { 
+          font-size: 32px; 
+          background-color: #ffffff; 
+          color: #111; 
+          padding: 10px 10px 10px; 
+          border: none; 
+        } 
+        /* the sidebar button changes  
+          color when mouse hovers upon it */ 
+        .openbtn:hover { 
+          color: #FFFFFF; 
+        } 
+          
+        /* pushes the page content to the right 
+          when you open the side navigation */ 
+                  
+        #main { 
+          transition: margin-left .5s; 
+          /* If you want a transition effect */ 
+          padding: 10px; 
+          } 
+    </style> 
   </head>
+
   <body>
-    <div id="yeet">yeet</div>
+    <div id="sidebar" class="sidebar"> 
+      <a href="javascript:void(0)" 
+        class="closebtn" 
+        onclick="closeNav()"> 
+          × 
+      </a> 
+       
+      <!--the cross button-->
+      <a href="#">Calendar</a> 
+      <a href="#">People</a> 
+      <a href="#">Manage Accounts</a> 
+      <a href="#">Log Out</a> 
+      </div> 
+      
+      <div id="main"> 
+        <button class="openbtn" 
+          onclick="openNav()"> 
+          ≡ 
+        </button> 
+        <!-- for the sidebar button-->
+      </div> 
 
     
     <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
     <!-- <script src="app.js"></script> -->
+
+    <div id="yeet">yeet</div>
     
   </body>
+
+  <script> 
+    /* Sets the width of the sidebar  
+    to 250 and the left margin of the  
+    page content to 250 */ 
+    function openNav() { 
+        document.getElementById( 
+          "sidebar").style.width = "250px"; 
+        document.getElementById( 
+          "main").style.marginLeft = "250px"; 
+    } 
+  
+    /* Set the width of the sidebar  
+    to 0 and the left margin of the  
+    page content to 0 */ 
+    function closeNav() { 
+        document.getElementById( 
+          "sidebar").style.width = "0"; 
+        document.getElementById( 
+          "main").style.marginLeft = "0"; 
+    } 
+</script> 
+
 </html>
+
