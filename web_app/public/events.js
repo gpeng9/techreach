@@ -10,19 +10,23 @@ var events = []
 
 // var db = firestore
 db.collection("events").get().then(function(querySnapshot) {
+    var row = 0
     querySnapshot.forEach(function(doc) {
         // doc.data() is never undefined for query doc snapshots
         console.log(doc.id, " => ", doc.data());
         var id = doc.id
         var data = doc.data()
-        var attendees = data.attendees
         var description = data.description
-        var name = data.name
-        var date = data.date
-        events.push({event_id: doc.id, attendees: attendees, description: description, name: name})
-    });
-    $.each(events, function (idx, event) {
-        console.log(event)
-        $("#tbody").append("<tr><td>" + event.name +"</td><td>" + event.description + "</td></tr>");
+        var title = data.title
+        var date = data.date.toDate()
+        events.push({event_id: doc.id, description: description, title: title, date: date})
+        $("#tbody").append("<tr style='border: 1px solid black' id = " + id + "><td>"+ date.toLocaleDateString('en-US') + "</td><td>" + title +"</td><td>" + description + "</td></tr>");
+        row += 1
     });
 });    
+
+$("#table").on('click','tr',function(e) { 
+    console.log(this.id)
+    var url = "individualEvent.html?event_id=" + encodeURIComponent(this.id)
+    document.location.href = url
+}); 
