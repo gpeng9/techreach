@@ -4,14 +4,24 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Welcome to Firebase Hosting</title>
+        <!-- update the version number as needed -->
+        <script src="/__/firebase/7.8.0/firebase-app.js"></script>
+        <!-- include only the Firebase features as you need -->
+        <script src="/__/firebase/7.8.0/firebase-auth.js"></script>
+        <script src="/__/firebase/7.8.0/firebase-database.js"></script>
+        <script src="/__/firebase/7.8.0/firebase-firestore.js"></script>
+        <script src="/__/firebase/7.8.0/firebase-messaging.js"></script>
+        <script src="/__/firebase/7.8.0/firebase-storage.js"></script>
+        <!-- initialize the SDK after all desired features are loaded -->
+        <script src="/__/firebase/init.js"></script>
     </head>
     <body>
         <form name="form">
-            <select name="jumpmenu" onChange="jumpto(document.form.jumpmenu.options[document.form.jumpmenu.options.selectedIndex].value)">
+            <select id="jumpmenu" name="jumpmenu" onChange="jumpto(document.form.jumpmenu.options[document.form.jumpmenu.options.selectedIndex].value)">
                 <option>Select Event</option>
-                <option value=event1>Event 1</option>
-                <option value=event2/>Event 2</option>
-                <option value=event3/>Event 3</option>
+                <option value="event1">Event 1</option>
+                <option value="event2">Event 2</option>
+                <option value="event3">Event 3</option>
             </select>
         </form>
         <form onsubmit="submit()" action="register_complete.php" method="get" style="border:1px solid #ccc">
@@ -110,21 +120,6 @@
           }
         }
         </style>
-        <!-- The core Firebase JS SDK is always required and must be listed first -->
-        <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
-        <!-- TODO: Add SDKs for Firebase products that you want to use
-            https://firebase.google.com/docs/web/setup#available-libraries -->
-        <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-analytics.js"></script>
-        <!-- update the version number as needed -->
-        <script src="/__/firebase/7.8.0/firebase-app.js"></script>
-        <!-- include only the Firebase features as you need -->
-        <script src="/__/firebase/7.8.0/firebase-auth.js"></script>
-        <script src="/__/firebase/7.8.0/firebase-database.js"></script>
-        <script src="/__/firebase/7.8.0/firebase-messaging.js"></script>
-        <script src="/__/firebase/7.8.0/firebase-storage.js"></script>
-        <script src="/__/firebase/7.8.0/firebase-firestore.js"></script>
-        <!-- initialize the SDK after all desired features are loaded -->
-        <script src="/__/firebase/init.js"></script>
         <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
         <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
         <script src="index.js"></script>
