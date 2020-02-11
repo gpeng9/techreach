@@ -1,126 +1,132 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Welcome to Firebase Hosting</title>
+    </head>
+    <body>
+        <form name="form">
+            <select name="jumpmenu" onChange="jumpto(document.form.jumpmenu.options[document.form.jumpmenu.options.selectedIndex].value)">
+                <option>Select Event</option>
+                <option value=event1>Event 1</option>
+                <option value=event2/>Event 2</option>
+                <option value=event3/>Event 3</option>
+            </select>
+        </form>
+        <form onsubmit="submit()" action="register_complete.php" method="get" style="border:1px solid #ccc">
+            <div class="container">
+                <h1>Sign Up</h1>
+                <p id ="message">Please fill in this form to register for the event.</p>
+                <hr>
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/7.8.0/firebase-app.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/7.8.0/firebase-auth.js"></script>
-    <script defer src="/__/firebase/7.8.0/firebase-database.js"></script>
-    <script defer src="/__/firebase/7.8.0/firebase-messaging.js"></script>
-    <script defer src="/__/firebase/7.8.0/firebase-storage.js"></script>
-    <!-- initialize the SDK after all desired features are loaded -->
-    <script defer src="/__/firebase/init.js"></script>
+                <label for="first-name"><b>First Name</b></label>
+                <input id="first-name" type="text" placeholder="First Name" name="first-name" required>
 
-  </head>
-  <body>
-      <form name="form">
-        <select name="jumpmenu" onChange="jumpto(document.form.jumpmenu.options[document.form.jumpmenu.options.selectedIndex].value)">
-          <option>Select Event</option>
-          <option value=event1>Event 1</option>
-          <option value=event2/>Event 2</option>
-          <option value=event3/>Event 3</option>
-        </select>
-      </form>
-      <form action="register_complete.php" method="get" style="border:1px solid #ccc">
-      <div class="container">
-        <h1>Sign Up</h1>
-        <p id ="message">Please fill in this form to register for the event.</p>
-        <hr>
+                <label for="email"><b>Last Name</b></label>
+                <input id="last-name" type="text" placeholder="Last Name" name="last-name" required>
 
-        <label for="first-name"><b>First Name</b></label>
-        <input type="text" placeholder="First Name" name="first-name" required>
+                <label for="email"><b>Email</b></label>
+                <input id="email" type="text" placeholder="Enter Email" name="email" required>
 
-        <label for="email"><b>Last Name</b></label>
-        <input type="text" placeholder="Last Name" name="last-name" required>
+                <label for="diet"><b>Dietary Restrictions</b></label>
+                <input id="diet" type="text" placeholder="Enter Dietary Restrictions" name="diet">
 
-        <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" name="email" required>
+                <label>
+                    <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                </label>
 
-        <label for="diet"><b>Dietary Restrictions</b></label>
-        <input type="text" placeholder="Enter Dietary Restrictions" name="diet">
+                <div class="clearfix">
+                    <button type="button" class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Register</button>
+                </div>
+            </div>
+        </form>
+        <style>
+        /* Full-width input fields */
+          input[type=text] {
+          width: 100%;
+          padding: 15px;
+          margin: 5px 0 22px 0;
+          display: inline-block;
+          border: none;
+          background: #f1f1f1;
+        }
 
-        <label>
-          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-        </label>
+        input[type=text]:focus {
+          background-color: #ddd;
+          outline: none;
+        }
 
-        <div class="clearfix">
-          <button type="button" class="cancelbtn">Cancel</button>
-          <button type="submit" class="signupbtn">Register</button>
-        </div>
-      </div>
-    </form>
+        hr {
+          border: 1px solid #f1f1f1;
+          margin-bottom: 25px;
+        }
 
-    <style>
-    /* Full-width input fields */
-      input[type=text] {
-      width: 100%;
-      padding: 15px;
-      margin: 5px 0 22px 0;
-      display: inline-block;
-      border: none;
-      background: #f1f1f1;
-    }
+        /* Set a style for all buttons */
+        button {
+          background-color: #4CAF50;
+          color: white;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          cursor: pointer;
+          width: 100%;
+          opacity: 0.9;
+        }
 
-    input[type=text]:focus {
-      background-color: #ddd;
-      outline: none;
-    }
+        button:hover {
+          opacity:1;
+        }
 
-    hr {
-      border: 1px solid #f1f1f1;
-      margin-bottom: 25px;
-    }
+        /* Extra styles for the cancel button */
+        .cancelbtn {
+          padding: 14px 20px;
+          background-color: #f44336;
+        }
 
-    /* Set a style for all buttons */
-    button {
-      background-color: #4CAF50;
-      color: white;
-      padding: 14px 20px;
-      margin: 8px 0;
-      border: none;
-      cursor: pointer;
-      width: 100%;
-      opacity: 0.9;
-    }
+        /* Float cancel and signup buttons and add an equal width */
+        .cancelbtn, .signupbtn {
+          float: left;
+          width: 50%;
+        }
 
-    button:hover {
-      opacity:1;
-    }
+        /* Add padding to container elements */
+        .container {
+          padding: 16px;
+        }
 
-    /* Extra styles for the cancel button */
-    .cancelbtn {
-      padding: 14px 20px;
-      background-color: #f44336;
-    }
+        /* Clear floats */
+        .clearfix::after {
+          content: "";
+          clear: both;
+          display: table;
+        }
 
-    /* Float cancel and signup buttons and add an equal width */
-    .cancelbtn, .signupbtn {
-      float: left;
-      width: 50%;
-    }
-
-    /* Add padding to container elements */
-    .container {
-      padding: 16px;
-    }
-
-    /* Clear floats */
-    .clearfix::after {
-      content: "";
-      clear: both;
-      display: table;
-    }
-
-    /* Change styles for cancel button and signup button on extra small screens */
-    @media screen and (max-width: 300px) {
-      .cancelbtn, .signupbtn {
-        width: 100%;
-      }
-    }
-    </style>
-  </body>
+        /* Change styles for cancel button and signup button on extra small screens */
+        @media screen and (max-width: 300px) {
+          .cancelbtn, .signupbtn {
+            width: 100%;
+          }
+        }
+        </style>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-analytics.js"></script>
+        <!-- update the version number as needed -->
+        <script src="/__/firebase/7.8.0/firebase-app.js"></script>
+        <!-- include only the Firebase features as you need -->
+        <script src="/__/firebase/7.8.0/firebase-auth.js"></script>
+        <script src="/__/firebase/7.8.0/firebase-database.js"></script>
+        <script src="/__/firebase/7.8.0/firebase-messaging.js"></script>
+        <script src="/__/firebase/7.8.0/firebase-storage.js"></script>
+        <script src="/__/firebase/7.8.0/firebase-firestore.js"></script>
+        <!-- initialize the SDK after all desired features are loaded -->
+        <script src="/__/firebase/init.js"></script>
+        <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+        <script src="index.js"></script>
+    </body>
 </html>
