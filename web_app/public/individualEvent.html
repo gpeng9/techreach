@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin</title>
+    <title>Individual Event</title>
 
 
     <!-- update the version number as needed -->
@@ -89,7 +89,7 @@
        
       <!--the cross button-->
       <a href="events.html">Events</a> 
-      <a href="#">People</a> 
+      <a href="individualEvent.html">Individual Event</a>
       <a href="#">Manage Accounts</a> 
       <a href="#">Log Out</a> 
       </div> 
@@ -105,18 +105,18 @@
     
     <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
-    <script type="module" src="events.js"></script>
+    <script type="module" src="individualEvent.js"></script>
     <script src="yeet.js"></script>
 
-    <table id="table" style = "border-collapse: collapse">
-      <col width="150">
-      <col width="150">
-      <col width="150">
-      <thead >
-        <tr style='border: 1px solid black'>
-          <th>Date</th>
-          <th>Title</th>
-          <th>Description</th>
+    <table id="table">
+      <thead>
+        <tr>
+          <th>Atendee UID</th>
+          <th>Atendee Name</th>
+          <th>Atendee Email</th>
+          <th>Atendee Caltech UID</th>
+          <th>Atendee Dietary Restrictions</th>
+
         </tr>
       </thead>
       <tbody id = "tbody">
