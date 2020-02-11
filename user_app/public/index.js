@@ -1,6 +1,7 @@
 (function(){
     "use strict";
-    var admin = require("firebase-admin");
+    // var admin = require("firebase-admin");
+    // var functions = require("firebase-functions");
     // Your web app's Firebase configuration
     var firebaseConfig = {
         apiKey: "AIzaSyBtfWIrfwMFGBs5l8lP3PJD_M0HvZQ8WTU",
@@ -14,17 +15,29 @@
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
+    // admin.initializeApp(functions.config().firebase);
     firebase.analytics();
-    var db = admin.database();
-    var ref = db.ref("events/event1");
-    var attendeesRef = ref.child("attendees");
+    // var db = admin.firestore();
+    var db = firebase.firestore();
+    var eventRef = db.collection("events").doc("event1");
+    eventRef.update(JSON.stringify({"attendees": "none"}));
+    eventRef.update({"attendees": "none"});
+    /* eventRef.update({
+        attendees: admin.firestore.FieldValue.arrayUnion({
+            "First Name": "a",
+            "Last Name": "b",
+            "Email": "c",
+            "Dietary Restrictions": "d"
+        })
+    }); */
     function submit() {
-        var email = document.getElementById("email").value;
-        attendeesRef.child(email).set({
-            "First Name": document.getElementById("first-name").value,
-            "Last Name": document.getElementById("last-name").value,
-            "Email": email,
-            "Dietary Restrictions": document.getElementById("diet").value
-        });
+        /* eventRef.update({
+            attendees: admin.firestore.FieldValue.arrayUnion({
+                "First Name": document.getElementById("first-name").value,
+                "Last Name": document.getElementById("last-name").value,
+                "Email": document.getElementById("email").value,
+                "Dietary Restrictions": document.getElementById("diet").value
+            })
+        }); */
     }
 })();
