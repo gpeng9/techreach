@@ -5,7 +5,7 @@
     var form = document.getElementById("form");
     form.onsubmit = function() {
         var eventName = document.getElementById("jumpmenu").value;
-        if (eventName !== "none") {
+        if (eventName !== "") {
             var eventRef = eventsRef.doc(eventName).collection("attendees");
             eventRef.add({
                 "name": document.getElementById("first-name").value + " " + document.getElementById("last-name").value,
@@ -17,7 +17,7 @@
     };
     var jumpMenu = document.getElementById("jumpmenu");
     jumpMenu.onchange = function() {
-        if (document.form.jumpmenu.value !== "none") {
+        if (document.form.jumpmenu.value !== "") {
             document.location.href = document.form.jumpmenu.options[document.form.jumpmenu.options.selectedIndex].value;
         }
     };
