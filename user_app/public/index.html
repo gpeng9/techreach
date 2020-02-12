@@ -1,172 +1,161 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
-
-    <script src="events.jsx"></script>
-
-  </head>
-  <body style="background-color: #234E71; font-family: Arial, Helvetica, sans-serif">
-
-    <h1>Caltech Y</h1>
-    <!--
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      <div style="margin-left: 15px">
-        <h2>Event Waiver</h2>
-          <p>You must download and fill out the waiver below in order to attend the event.</p>
-          <form method="get" action="General release (adults) SERVICE_2.doc">
-            <button type="submit" class="downloadbtn"><i class="fa fa-download"></i> Download Waiver</button>
-          </form>
-      </div>
-    -->
-      <form action="register_complete.php" method="post" style="border: 1px solid">
-      <div class="container">
-        <h2>Event Registration</h2>
-        <p id ="message">Please fill in this form to register for the event. A confirmation will be sent to your email with a waiver attached. Please sign and return the waiver through email to caltechy@caltech.edu</p>
-        <hr>
-
-        <select name="jumpmenu" onChange="jumpto(document.form.jumpmenu.options[document.form.jumpmenu.options.selectedIndex].value)">
-          <option>Select Event</option>
-          <option value=event1>Event 1</option>
-          <option value=event2>Event 2</option>
-          <option value=event3>Event 3</option>
-        </select><br/><br/><br/>
-
-        <label for="first-name"><b>First Name</b></label>
-        <input type="text" placeholder="First Name" name="first-name" required>
-
-        <label for="last-name"><b>Last Name</b></label>
-        <input type="text" placeholder="Last Name" name="last-name" required>
-
-        <label for="email"><b>Email</b></label>
-        <input type="email" placeholder="Enter Email" name="email" required>
-
-        <label for="uid"><b>Caltech UID</b></label>
-        <input type="text" placeholder="Enter UID Number" name="uid" pattern="[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]">
-
-        <label for="diet"><b>Dietary Restrictions</b></label>
-        <input type="text" placeholder="Enter Dietary Restrictions" name="diet">
-        <!--
-        <label for="pdf"><b>Upload Waiver (PDF only)</b></label><br/>
-        <input type="file" name="upload" accept="application/pdf" required><br/>
-        -->
-        <label>
-          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-        </label>
-
-        <div class="clearfix">
-          <button type="button" class="cancelbtn">Cancel</button>
-          <button type="submit" class="signupbtn">Register</button>
-        </div>
-      </div>
-    </form>
-
-    <style>
-    /* Full-width input fields */
-      input[type=text], input[type=email], input[type=number] {
-      width: 97%;
-      padding: 15px;
-      margin: 5px 0 22px 0;
-      display: inline-block;
-      border: none;
-      background: #EDEDED;
-    }
-
-    input[type=text]:focus, input[type=email]:focus, input[type=number]:focus {
-      background-color: #DDD;
-      outline: none;
-    }
-
-    input[type=file] {
-      padding: 15px;
-    }
-
-    hr {
-      border: 1px solid #F1F1F1;
-      margin-bottom: 25px;
-    }
-
-    h1 {
-      color: #89BB42;
-      margin-left: 15px;
-    }
-
-    /* Set a style for all buttons */
-    button {
-      background-color: #234E71;
-      color: white;
-      padding: 14px 20px;
-      margin: 8px 0;
-      border: none;
-      cursor: pointer;
-      width: 100%;
-      opacity: 0.9;
-    }
-
-    button:hover {
-      opacity: 0.75;
-    }
-
-    /* Extra styles for the download button */
-    .downloadbtn {
-      padding: 7px 10px;
-      margin: 0px 0px 20px 0;
-      background-color: #008CBA;
-      width: auto
-    }
-
-    /* Extra styles for the cancel button */
-    .cancelbtn {
-      padding: 14px 20px;
-      background-color: #F44336;
-    }
-
-    /* Float cancel and signup buttons and add an equal width */
-    .cancelbtn, .signupbtn {
-      float: left;
-      width: 50%;
-    }
-
-    /* Add padding to container elements */
-    .container {
-      padding: 3px 16px 3px 16px;
-      background-color: #89BB42;
-    }
-
-    /* Clear floats */
-    .clearfix::after {
-      content: "";
-      clear: both;
-      display: table;
-    }
-
-    /* Change styles for cancel button and signup button on extra small screens */
-    @media screen and (max-width: 300px) {
-      .cancelbtn, .signupbtn {
-        width: 100%;
-      }
-    }
-    </style>
-
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-        <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
-        <!-- TODO: Add SDKs for Firebase products that you want to use
-            https://firebase.google.com/docs/web/setup#available-libraries -->
-        <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-analytics.js"></script>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Event Registration</title>
         <!-- update the version number as needed -->
         <script src="/__/firebase/7.8.0/firebase-app.js"></script>
         <!-- include only the Firebase features as you need -->
         <script src="/__/firebase/7.8.0/firebase-auth.js"></script>
         <script src="/__/firebase/7.8.0/firebase-database.js"></script>
+        <script src="/__/firebase/7.8.0/firebase-firestore.js"></script>
         <script src="/__/firebase/7.8.0/firebase-messaging.js"></script>
         <script src="/__/firebase/7.8.0/firebase-storage.js"></script>
-        <script src="/__/firebase/7.8.0/firebase-firestore.js"></script>
         <!-- initialize the SDK after all desired features are loaded -->
         <script src="/__/firebase/init.js"></script>
+    </head>
+    <body style="background-color: #234E71; font-family: Arial, Helvetica, sans-serif">
+        <h1>Caltech Y</h1>
+        <!--
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <div style="margin-left: 15px">
+            <h2>Event Waiver</h2>
+            <p>You must download and fill out the waiver below in order to attend the event.</p>
+            <form method="get" action="General release (adults) SERVICE_2.doc">
+                <button type="submit" class="downloadbtn"><i class="fa fa-download"></i> Download Waiver</button>
+            </form>
+        </div>
+        -->
+        <form id="form" action="register_complete.php" method="post" style="border: 1px solid">
+            <div class="container">
+                <h2>Event Registration</h2>
+                <p id ="message">Please fill in this form to register for the event. A confirmation will be sent to your email with a waiver attached. Please sign and return the waiver through email to caltechy@caltech.edu</p>
+                <hr>
+
+                <select id="jumpmenu" name="jumpmenu">
+                    <option value="none">Select Event</option>
+                    <option value="event1">Event 1</option>
+                    <option value="event2">Event 2</option>
+                    <option value="event3">Event 3</option>
+                </select><br/><br/><br/>
+
+                <label for="first-name"><b>First Name</b></label>
+                <input id="first-name" type="text" placeholder="First Name" name="first-name" required>
+
+                <label for="last-name"><b>Last Name</b></label>
+                <input id="last-name" type="text" placeholder="Last Name" name="last-name" required>
+
+                <label for="email"><b>Email</b></label>
+                <input id="email" type="email" placeholder="Enter Email" name="email" required>
+
+                <label for="uid"><b>Caltech UID</b></label>
+                <input id="uid" type="text" placeholder="Enter UID Number" name="uid" pattern="[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]+[0-9]">
+
+                <label for="diet"><b>Dietary Restrictions</b></label>
+                <input id="diet" type="text" placeholder="Enter Dietary Restrictions" name="diet">
+                <!--
+                <label for="pdf"><b>Upload Waiver (PDF only)</b></label><br/>
+                <input type="file" name="upload" accept="application/pdf" required><br/>
+                -->
+                <label>
+                    <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                </label>
+
+                <div class="clearfix">
+                    <button type="button" class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Register</button>
+                </div>
+            </div>
+        </form>
+        <style>
+        /* Full-width input fields */
+        input[type=text], input[type=email], input[type=number] {
+            width: 97%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #EDEDED;
+        }
+
+        input[type=text]:focus, input[type=email]:focus, input[type=number]:focus {
+            background-color: #DDD;
+            outline: none;
+        }
+
+        input[type=file] {
+            padding: 15px;
+        }
+
+        hr {
+            border: 1px solid #F1F1F1;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            color: #89BB42;
+            margin-left: 15px;
+        }
+
+        /* Set a style for all buttons */
+        button {
+            background-color: #234E71;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+
+        button:hover {
+            opacity: 0.75;
+        }
+
+        /* Extra styles for the download button */
+        .downloadbtn {
+            padding: 7px 10px;
+            margin: 0px 0px 20px 0;
+            background-color: #008CBA;
+            width: auto
+        }
+
+        /* Extra styles for the cancel button */
+        .cancelbtn {
+            padding: 14px 20px;
+            background-color: #F44336;
+        }
+
+        /* Float cancel and signup buttons and add an equal width */
+        .cancelbtn, .signupbtn {
+            float: left;
+            width: 50%;
+        }
+
+        /* Add padding to container elements */
+        .container {
+            padding: 3px 16px 3px 16px;
+            background-color: #89BB42;
+        }
+
+        /* Clear floats */
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        /* Change styles for cancel button and signup button on extra small screens */
+        @media screen and (max-width: 300px) {
+            .cancelbtn, .signupbtn {
+                width: 100%;
+            }
+        }
+        </style>
         <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
         <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
         <script src="index.js"></script>
-  </body>
+    </body>
 </html>
