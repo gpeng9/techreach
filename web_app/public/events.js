@@ -27,6 +27,9 @@ db.collection("events").get().then(function(querySnapshot) {
 
 $("#table").on('click','tr',function(e) { 
     console.log(this.id)
+    var URIComponent = encodeURIComponent(this.id)
+    localStorage.setItem('URIComp', URIComponent)
+
     var url = "individualEvent.html?event_id=" + encodeURIComponent(this.id)
     document.location.href = url
 }); 

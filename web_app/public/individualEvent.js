@@ -5,11 +5,14 @@
 
 var db = firebase.firestore()
 
+// var queryString = location.search.substring(1);
 
 var attendees = []
+var URIComp = localStorage.getItem("URIComp")
+var URI = "events/" + URIComp + "/attendees"
 
 // var db = firestore
-db.collection("events/event1/attendees").get().then(function(querySnapshot) {
+db.collection(URI).get().then(function(querySnapshot) {
     querySnapshot.forEach(function(doc) {
         // doc.data() is never undefined for query doc snapshots
         console.log(doc.id, " => ", doc.data());
