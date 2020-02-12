@@ -30,7 +30,7 @@
         <form id="form" action="register_complete.php" method="post" style="border: 1px solid">
             <div class="container">
                 <h2>Event Registration</h2>
-                <p id ="message">Please fill in this form to register for the event. A confirmation will be sent to your email with a waiver attached. Please sign and return the waiver through email to caltechy@caltech.edu</p>
+                <p id ="message">Please fill in this form to register for the event. A confirmation will be sent to your email with a waiver attached. Please sign and return the waiver through email to caltechy@caltech.edu before the day of the event.</p>(* Required)
                 <hr>
 
                 <select id="jumpmenu" name="jumpmenu">
@@ -38,15 +38,15 @@
                     <option value="event1">Event 1</option>
                     <option value="event2">Event 2</option>
                     <option value="event3">Event 3</option>
-                </select><br/><br/><br/>
+                </select><b> *</b><br/><br/><br/>
 
-                <label for="first-name"><b>First Name</b></label>
+                <label for="first-name"><b>First Name *</b></label>
                 <input id="first-name" type="text" placeholder="First Name" name="first-name" required>
 
-                <label for="last-name"><b>Last Name</b></label>
+                <label for="last-name"><b>Last Name *</b></label>
                 <input id="last-name" type="text" placeholder="Last Name" name="last-name" required>
 
-                <label for="email"><b>Email</b></label>
+                <label for="email"><b>Email *</b></label>
                 <input id="email" type="email" placeholder="Enter Email" name="email" required>
 
                 <label for="uid"><b>Caltech UID</b></label>
