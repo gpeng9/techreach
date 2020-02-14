@@ -27,10 +27,10 @@
             </form>
         </div>
         -->
-        <form id="form" action="register_complete.php" method="post" style="border: 1px solid">
+        <form id="form" action="confirmation.html" method="post">
             <div class="container">
                 <h2>Event Registration</h2>
-                <p id ="message">Please fill in this form to register for the event. A confirmation will be sent to your email with a waiver attached. Please sign and return the waiver through email to caltechy@caltech.edu before the day of the event.</p>(* Required)
+                <p id ="message">Please fill in this form to register for the event. A confirmation will be sent to your email with a waiver attached. The Caltech UID field is not required; only fill it in if you are a Caltech student.</p>(* Required)
                 <hr>
 
                 <select id="jumpmenu" name="jumpmenu" required>
@@ -58,20 +58,16 @@
                 <label for="pdf"><b>Upload Waiver (PDF only)</b></label><br/>
                 <input type="file" name="upload" accept="application/pdf" required><br/>
                 -->
-                <label>
-                    <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-                </label>
 
                 <div class="clearfix">
-                    <button type="button" class="cancelbtn">Cancel</button>
                     <button type="submit" class="signupbtn">Register</button>
                 </div>
             </div>
         </form>
         <style>
         /* Full-width input fields */
-        input[type=text], input[type=email], input[type=number] {
-            width: 97%;
+        input[type=text], input[type=email] {
+            width: 93%;
             padding: 15px;
             margin: 5px 0 22px 0;
             display: inline-block;
@@ -79,7 +75,7 @@
             background: #EDEDED;
         }
 
-        input[type=text]:focus, input[type=email]:focus, input[type=number]:focus {
+        input[type=text]:focus, input[type=email]:focus {
             background-color: #DDD;
             outline: none;
         }
@@ -95,7 +91,8 @@
 
         h1 {
             color: #89BB42;
-            margin-left: 15px;
+            /*margin-left: 300px;*/
+            text-align: center;
         }
 
         /* Set a style for all buttons */
@@ -108,6 +105,7 @@
             cursor: pointer;
             width: 100%;
             opacity: 0.9;
+            border-radius: 5px;
         }
 
         button:hover {
@@ -122,22 +120,22 @@
             width: auto
         }
 
-        /* Extra styles for the cancel button */
-        .cancelbtn {
-            padding: 14px 20px;
-            background-color: #F44336;
-        }
-
         /* Float cancel and signup buttons and add an equal width */
-        .cancelbtn, .signupbtn {
-            float: left;
-            width: 50%;
+        .signupbtn {
+            margin: 0 auto;
+            width: auto;
+            display: flex;
+            flex-direction: column; 
+            justify-content: center;
         }
 
         /* Add padding to container elements */
         .container {
             padding: 3px 16px 3px 16px;
             background-color: #89BB42;
+            border-radius: 8px;
+            width: 50%; 
+            margin: auto;
         }
 
         /* Clear floats */
@@ -149,7 +147,7 @@
 
         /* Change styles for cancel button and signup button on extra small screens */
         @media screen and (max-width: 300px) {
-            .cancelbtn, .signupbtn {
+                .signupbtn {
                 width: 100%;
             }
         }
