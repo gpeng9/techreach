@@ -30,7 +30,7 @@
         <form id="form" action="confirmation.html" method="post">
             <div class="container">
                 <h2>Event Registration</h2>
-                <p id ="message">Please fill in this form to register for the event. A confirmation will be sent to your email with a waiver attached. The Caltech UID field is not required; only fill it in if you are a Caltech student.</p>(* Required)
+                <p id ="message">Please fill in this form to register for the event. Only fill in the Caltech UID field if you are a Caltech student. Make sure to download the correct type of waiver for the event you select. After downloading the waiver, you must fill it out and submit it to <a href="mailto:caltechy@caltech.edu">caltechy@caltech.edu</a> as a PDF before the day of the event. </p>(* Required)
                 <hr>
 
                 <select id="jumpmenu" name="jumpmenu" required>
@@ -39,6 +39,12 @@
                     <option value="event2">Event 2</option>
                     <option value="event3">Event 3</option>
                 </select><b> *</b><br/><br/><br/>
+
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                <a href="General release (adults) SERVICE_2.doc" class="downloadbtn" download><i class="fa fa-download"></i> Download Waiver</a>
+                <a href="" class="downloadbtn" download><i class="fa fa-download"></i> Download Waiver 2</a>
+                <a href="" class="downloadbtn" download><i class="fa fa-download"></i> Download Waiver 3</a><sup style="font-size: 20px"> *</sup>
+                <br/><br/><br/>
 
                 <label for="first-name"><b>First Name *</b></label>
                 <input id="first-name" type="text" placeholder="First Name" name="first-name" required>
@@ -118,6 +124,19 @@
             margin: 0px 0px 20px 0;
             background-color: #008CBA;
             width: auto
+            background-color: #234E71;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+            border-radius: 5px;
+        }
+
+        .downloadbtn:hover {
+            opacity: 0.75;
         }
 
         /* Float cancel and signup buttons and add an equal width */
