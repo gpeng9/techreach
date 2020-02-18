@@ -25,11 +25,17 @@
     
   </head>
   <body>
-    <div id="yeet">ye</div>
-
-    <div id="firebaseui-auth-container"></div>
-
-    <div id="loader">Loading...</div>
+    <div class="container">
+        <label for="email"><b>Email</b></label>
+        <input id="email" type="text"  name="email" required>
+        <br>
+        <br>
+        <label for="password"><b>Password</b></label>
+        <input id="password" type="password" name="password" required>
+        <br>
+        <br>
+        <button type="button" class="signupbtn" onclick="handleSignIn()">Log In</button>
+    </div>
     
     <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
