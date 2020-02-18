@@ -1,0 +1,64 @@
+/* spacing
+
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border: 3px solid purple;
+  }
+  
+  thead th:nth-child(1) {
+    width: 30%;
+  }
+  
+  thead th:nth-child(2) {
+    width: 20%;
+  }
+  
+  thead th:nth-child(3) {
+    width: 15%;
+  }
+  
+  thead th:nth-child(4) {
+    width: 35%;
+  }
+  
+  th, td {
+    padding: 20px;
+  } */
+
+  table {  
+    table-layout: auto;
+    /* table-layout: fixed; */
+    color: #333;
+    font-family: Helvetica, Arial, sans-serif;
+    width: 100%;
+    /* width: 640px;  */
+    border-collapse: collapse; 
+    border-spacing: 5; 
+}
+
+td, th {  
+    border: 1px solid rgb(136, 137, 224); /* No more visible border */
+    height: 30px; 
+    transition: all 0.3s;  /* Simple transition for hover effect */
+}
+
+th {  
+    background: rgb(158, 199, 156);  /* Darken header a bit */
+    font-weight: bold;
+}
+
+td {  
+    background: #FAFAFA;
+    text-align: center;
+}
+
+/* Cells in even rows (2,4,6...) are one color */        
+tr:nth-child(even) td { background: #F1F1F1; }   
+
+/* Cells in odd rows (1,3,5...) are another (excludes header cells)  */        
+tr:nth-child(odd) td { background: #FEFEFE; }  
+
+tr td:hover { background: #666; color: #FFF; }  
+/* Hover cell effect! */
