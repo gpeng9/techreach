@@ -89,8 +89,8 @@
        
       <!--the cross button-->
       <a href="events.html">Events</a> 
-      <a href="individualEvent.html">Individual Event</a>
-      <a href="#">Manage Accounts</a> 
+      <!-- <a href="individualEvent.html">Individual Event</a> -->
+      <a href="#">Create Event</a> 
       <a href="#">Log Out</a> 
       </div> 
       
@@ -107,6 +107,19 @@
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
     <script type="module" src="individualEvent.js"></script>
     <script src="yeet.js"></script>
+    
+    
+    <div style="text-align:center;">
+      <script> 
+        var URIComp = localStorage.getItem("URIComp")
+        document.write(URIComp)
+        </script>
+    </div>
+
+
+
+    <!-- style table -->
+    <link href="individualEvent.css" rel="stylesheet" type="text/css">
 
     <table id="table">
         <col width="150">
@@ -127,7 +140,7 @@
     </table>
     
 
-    // Export to Excel
+    <!-- Export to Excel -->
     <button onclick="exportTableToExcel('table')">Export Table Data To Excel File</button>
 
     <script>
