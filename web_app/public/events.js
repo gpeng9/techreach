@@ -18,7 +18,7 @@ db.collection("events").get().then(function(querySnapshot) {
         var data = doc.data()
         var description = data.description
         var title = data.title
-        var date = data.date.toDate()
+        var date = new Date(data.date*1000)
         events.push({event_id: doc.id, description: description, title: title, date: date})
         $("#tbody").append("<tr style='border: 1px solid black' id = " + id + "><td>"+ date.toLocaleDateString('en-US') + "</td><td>" + title +"</td><td>" + description + "</td></tr>");
         row += 1
