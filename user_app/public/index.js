@@ -16,6 +16,17 @@
         }
     };
     var jumpMenu = document.getElementById("jumpmenu");
+    eventsRef.get().then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            var data = doc.data();
+            // We only want to list events that haven't happened yet
+            if (Date.now() < data.date) {
+                var option = document.createElement("option");
+                option.text = data.title;
+                jumpMenu.options.add(option);
+            }
+        });
+    });
     jumpMenu.onchange = function() {
         if (document.form.jumpmenu.value !== "") {
             document.location.href = document.form.jumpmenu.options[document.form.jumpmenu.options.selectedIndex].value;
