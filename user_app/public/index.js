@@ -20,7 +20,8 @@
         querySnapshot.forEach(function(doc) {
             var data = doc.data();
             // We only want to list events that haven't happened yet
-            if (Date.now() < data.date) {
+            // Date.now() is in milliseconds, data.date is in seconds
+            if (Date.now()/1000 < data.date) {
                 var option = document.createElement("option");
                 option.text = data.title;
                 jumpMenu.options.add(option);
