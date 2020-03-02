@@ -3,8 +3,9 @@
     var db = firebase.firestore();
     var eventsRef = db.collection("events");
     var form = document.getElementById("form");
+    var jumpMenu = document.getElementById("jumpmenu");
     form.onsubmit = function() {
-        var eventName = document.getElementById("jumpmenu").value;
+        var eventName = jumpMenu.value;
         if (eventName !== "") {
             var eventRef = eventsRef.doc(eventName).collection("attendees");
             eventRef.add({
@@ -15,7 +16,6 @@
             });
         }
     };
-    var jumpMenu = document.getElementById("jumpmenu");
     eventsRef.get().then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
             var data = doc.data();
@@ -28,9 +28,4 @@
             }
         });
     });
-    jumpMenu.onchange = function() {
-        if (document.form.jumpmenu.value !== "") {
-            document.location.href = document.form.jumpmenu.options[document.form.jumpmenu.options.selectedIndex].value;
-        }
-    };
 })();
