@@ -4,8 +4,13 @@
     var eventsRef = db.collection("events");
     var form = document.getElementById("form");
     var jumpMenu = document.getElementById("jumpmenu");
+    // Converts a Unix time (in milliseconds) to standard date format
+    // "date" is a Date object
+    function standardDate(date) {
+        return date.toLocaleDateString('en-US');
+    }
     form.onsubmit = function() {
-        var eventName = jumpMenu.value;
+        var eventName = jumpMenu.value.replace(/\//g, "|");
         if (eventName !== "") {
             var eventRef = eventsRef.doc(eventName).collection("attendees");
             eventRef.add({
@@ -23,7 +28,8 @@
             // Date.now() is in milliseconds, data.date is in seconds
             if (Date.now()/1000 < data.date) {
                 var option = document.createElement("option");
-                option.text = data.title;
+                var date = new Date(data.date * 1000);
+                option.text = data.title + " - " + standardDate(date);
                 jumpMenu.options.add(option);
             }
         });
