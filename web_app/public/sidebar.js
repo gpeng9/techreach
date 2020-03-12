@@ -17,3 +17,13 @@ function closeNav() {
     document.getElementById( 
       "main").style.marginLeft = "0"; 
 } 
+
+function logout() {
+  firebase.auth().signOut().then(function() {
+    // Sign-out successful.
+    var url = "index.html" 
+    document.location.href = url
+  }).catch(function(error) {
+    // An error happened.
+  });
+}

@@ -1,4 +1,12 @@
-
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+        // User is signed in.
+    } else {
+        // User is signed out.
+        var url = "index.html" 
+        document.location.href = url
+    }
+});
 
 var db = firebase.firestore()
 

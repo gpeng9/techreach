@@ -2,6 +2,16 @@
 // const firebase = require("firebase");
 // // Required for side-effects
 // require("firebase/firestore");
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+        // User is signed in.
+    } else {
+        // User is signed out.
+        console.log("signed out")
+        var url = "index.html" 
+        document.location.href = url
+    }
+});
 
 var db = firebase.firestore()
 

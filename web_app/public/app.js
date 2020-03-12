@@ -1,3 +1,13 @@
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+    console.log("signed in")
+    var url = "events.html" 
+    document.location.href = url
+  } else {
+    // User is signed out.
+  }
+});
 
 function handleSignIn() {
   if (firebase.auth().currentUser) {
@@ -32,7 +42,6 @@ function handleSignIn() {
     });
     // [END authwithemail]
   }
-  var url = "events.html" 
-  document.location.href = url
+  
 }
 
