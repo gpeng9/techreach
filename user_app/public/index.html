@@ -17,19 +17,11 @@
     </head>
     <body style="background-color: #234E71; font-family: Arial, Helvetica, sans-serif">
         <h1>Caltech Y</h1>
-        <!--
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <div style="margin-left: 15px">
-            <h2>Event Waiver</h2>
-            <p>You must download and fill out the waiver below in order to attend the event.</p>
-            <form method="get" action="General release (adults) SERVICE_2.doc">
-                <button type="submit" class="downloadbtn"><i class="fa fa-download"></i> Download Waiver</button>
-            </form>
-        </div>
-        -->
+
         <form id="form" action="confirmation.html" method="post">
             <div class="container">
                 <h2>Event Registration</h2>
+                <!-- instructions for filling out form -->
                 <p id ="message">Please fill in this form to register for the event. Only fill in the Caltech UID field if you are a Caltech student. Make sure to download the correct type of waiver for the event you select. After downloading the waiver, you must fill it out and submit it to <a href="mailto:caltechy@caltech.edu">caltechy@caltech.edu</a> as a PDF before the day of the event. </p>(* Required)
                 <hr>
 
@@ -37,6 +29,7 @@
                     <option value="">Select Event</option>
                 </select><b> *</b><br/><br/>
 
+                <!-- two download buttons -->
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
                 <a href="General release (adults) SERVICE_2.doc" class="downloadbtn" download><i class="fa fa-download"></i> Download Service Waiver</a>
                 <a href="General release (adults) Day Hikes.doc" class="downloadbtn" download><i class="fa fa-download"></i> Download Hike Waiver</a><sup style="font-size: 20px"> *</sup>
@@ -56,10 +49,6 @@
 
                 <label for="diet"><b>Dietary Restrictions</b></label>
                 <input id="diet" type="text" placeholder="Enter Dietary Restrictions" name="diet">
-                <!--
-                <label for="pdf"><b>Upload Waiver (PDF only)</b></label><br/>
-                <input type="file" name="upload" accept="application/pdf" required><br/>
-                -->
 
                 <div class="clearfix">
                     <button type="submit" class="signupbtn">Register</button>
@@ -93,7 +82,6 @@
 
         h1 {
             color: #89BB42;
-            /*margin-left: 300px;*/
             text-align: center;
         }
 
